@@ -7,9 +7,10 @@ public abstract class Money
 
     public int Amount => amount;
 
-    protected Money(int amount)
+    protected Money(int amount, string currency)
     {
         this.amount = amount;
+        this.currency = currency;
     }
 
     public override bool Equals(object? obj)
