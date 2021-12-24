@@ -11,19 +11,9 @@ public class Money
         _currency = currency;
     }
 
-    public override bool Equals(object? obj)
+    public string Currency()
     {
-        return obj is Money money && _amount == money._amount && _currency == money._currency;
-    }
-
-    public override int GetHashCode()
-    {
-        return _amount;
-    }
-
-    public static Money Dollar(int amount)
-    {
-        return new Money(amount, "USD");
+        return _currency;
     }
 
     public Money Times(int multiplier)
@@ -31,13 +21,26 @@ public class Money
         return new Money(_amount * multiplier, _currency);
     }
 
+    public override bool Equals(object? obj)
+    {
+        return obj is Money money
+               && _amount == money._amount
+               && _currency == money._currency;
+    }
+
+    public override int GetHashCode()
+    {
+        return _amount;
+    }
+
+
+    public static Money Dollar(int amount)
+    {
+        return new Money(amount, "USD");
+    }
+
     public static Money Franc(int amount)
     {
         return new Money(amount, "CHF");
-    }
-
-    public string Currency()
-    {
-        return _currency;
     }
 }
