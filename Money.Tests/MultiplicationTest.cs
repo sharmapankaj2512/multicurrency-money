@@ -8,9 +8,11 @@ public class MultiplicationTest
     public void TestMultiplication()
     {
         var five = new Dollar(5);
-        five.Times(2);
-        
-        Assert.AreEqual(10, five.amount);
+        var product = five.Times(2);
+        Assert.AreEqual(10, product.amount);
+
+        product = five.Times(3);
+        Assert.AreEqual(15, product.amount);
     }
 }
 
@@ -23,8 +25,9 @@ public class Dollar
         this.amount = amount;
     }
 
-    public void Times(int multiplier)
+    public Dollar Times(int multiplier)
     {
         amount *= multiplier;
+        return this;
     }
 }
