@@ -18,7 +18,7 @@ public class MultiplicationTest
 
 public class Dollar
 {
-    public double amount;
+    public int amount;
 
     public Dollar(int amount)
     {
@@ -27,7 +27,6 @@ public class Dollar
 
     public Dollar Times(int multiplier)
     {
-        amount *= multiplier;
-        return this;
+        return new Dollar(amount * multiplier);
     }
 }
