@@ -1,6 +1,6 @@
 namespace Money.Tests;
 
-public abstract class Money
+public class Money
 {
     protected readonly int amount;
     protected string currency;
@@ -27,17 +27,20 @@ public abstract class Money
 
     public static Money Dollar(int amount)
     {
-        return new Dollar(amount, "USD");
+        return new Money(amount, "USD");
     }
 
-    public abstract Money Times(int amount);
+    public Money Times(int multiplier)
+    {
+        return new Money(amount * multiplier, "USD");
+    }
 
     public static Money Franc(int amount)
     {
-        return new Franc(amount, "CHF");
+        return new Money(amount, "CHF");
     }
 
-    public virtual string Currency()
+    public string Currency()
     {
         return currency;
     }
