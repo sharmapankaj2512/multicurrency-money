@@ -1,6 +1,6 @@
 namespace Money.Tests;
 
-public class Money
+public abstract class Money
 {
     protected readonly int amount;
 
@@ -21,5 +21,17 @@ public class Money
     public override int GetHashCode()
     {
         return Amount;
+    }
+
+    public static Money Dollar(int amount)
+    {
+        return new Dollar(amount);
+    }
+
+    public abstract Money Times(int amount);
+
+    public static Money Franc(int amount)
+    {
+        return new Franc(amount);
     }
 }

@@ -6,7 +6,7 @@ public class Dollar : Money
     {
     }
 
-    public Money Times(int multiplier)
+    public override Money Times(int multiplier)
     {
         return new Dollar(amount * multiplier);
     }
