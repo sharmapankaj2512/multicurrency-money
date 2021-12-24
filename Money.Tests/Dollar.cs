@@ -2,8 +2,11 @@ namespace Money.Tests;
 
 public class Dollar : Money
 {
+    private string currency;
+
     public Dollar(int amount) : base(amount)
     {
+        currency = "USD";
     }
 
     public override Money Times(int multiplier)
@@ -13,6 +16,6 @@ public class Dollar : Money
 
     public override string Currency()
     {
-        return "USD";
+        return currency;
     }
 }
