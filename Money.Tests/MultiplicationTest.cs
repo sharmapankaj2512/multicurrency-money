@@ -8,7 +8,7 @@ public class MultiplicationTest
     public void TestMultiplication()
     {
         var five = new Dollar(5);
-        five.times(2);
+        five.Times(2);
         
         Assert.AreEqual(10, five.amount);
     }
@@ -20,11 +20,11 @@ public class Dollar
 
     public Dollar(int amount)
     {
-        // do nothing
+        this.amount = amount;
     }
 
-    public void times(int multiplier)
+    public void Times(int multiplier)
     {
-        this.amount = 5 * 2;
+        amount = amount * 2;
     }
 }
