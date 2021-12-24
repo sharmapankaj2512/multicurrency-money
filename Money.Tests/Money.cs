@@ -3,6 +3,7 @@ namespace Money.Tests;
 public abstract class Money
 {
     protected readonly int amount;
+    protected string currency;
 
     public int Amount => amount;
 
@@ -35,5 +36,8 @@ public abstract class Money
         return new Franc(amount);
     }
 
-    public abstract string Currency();
+    public virtual string Currency()
+    {
+        return currency;
+    }
 }
