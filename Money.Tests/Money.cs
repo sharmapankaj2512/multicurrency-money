@@ -34,4 +34,6 @@ public abstract class Money
     {
         return new Franc(amount);
     }
+
+    public abstract string Currency();
 }

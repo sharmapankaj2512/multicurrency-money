@@ -10,4 +10,9 @@ public class Franc: Money
     {
         return new Franc(amount * multiplier);
     }
+
+    public override string Currency()
+    {
+        return "CHF";
+    }
 }
