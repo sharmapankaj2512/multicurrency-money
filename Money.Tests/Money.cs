@@ -26,14 +26,14 @@ public abstract class Money
 
     public static Money Dollar(int amount)
     {
-        return new Dollar(amount);
+        return new Dollar(amount, "USD");
     }
 
     public abstract Money Times(int amount);
 
     public static Money Franc(int amount)
     {
-        return new Franc(amount);
+        return new Franc(amount, "CHF");
     }
 
     public virtual string Currency()

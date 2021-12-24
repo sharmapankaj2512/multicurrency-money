@@ -2,13 +2,13 @@ namespace Money.Tests;
 
 public class Dollar : Money
 {
-    public Dollar(int amount) : base(amount)
+    public Dollar(int amount, string currency) : base(amount)
     {
-        currency = "USD";
+        this.currency = currency;
     }
 
     public override Money Times(int multiplier)
     {
-        return new Dollar(amount * multiplier);
+        return new Dollar(amount * multiplier, currency = "USD");
     }
 }

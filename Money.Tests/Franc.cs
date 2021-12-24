@@ -2,13 +2,13 @@ namespace Money.Tests;
 
 public class Franc: Money
 {
-    public Franc(int amount): base(amount)
+    public Franc(int amount, string currency): base(amount)
     {
-        currency = "CHF";
+        this.currency = currency;
     }
 
     public override Money Times(int multiplier)
     {
-        return new Franc(amount * multiplier);
+        return new Franc(amount * multiplier, currency = "CHF");
     }
 }
