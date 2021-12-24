@@ -1,31 +1,13 @@
 namespace Money.Tests;
 
-public class Franc
+public class Franc: Money
 {
-    private readonly int _amount;
-
-    protected bool Equals(Franc other)
+    public Franc(int amount): base(amount)
     {
-        return _amount == other._amount;
-    }
-
-    public override bool Equals(object? obj)
-    {
-        return _amount == (obj as Franc)._amount;
-    }
-
-    public override int GetHashCode()
-    {
-        return _amount;
-    }
-
-    public Franc(int amount)
-    {
-        this._amount = amount;
     }
 
     public Franc Times(int multiplier)
     {
-        return new Franc(_amount * multiplier);
+        return new Franc(amount * multiplier);
     }
 }
