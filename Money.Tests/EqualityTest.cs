@@ -9,5 +9,6 @@ public class EqualityTest
     public void TestEquality()
     {
         Assert.AreEqual(new Dollar(5), new Dollar(5));
+        Assert.AreNotEqual(new Dollar(5), new Dollar(6));
     }    
 }
