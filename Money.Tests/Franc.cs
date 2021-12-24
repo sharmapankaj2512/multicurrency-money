@@ -6,7 +6,7 @@ public class Franc: Money
     {
     }
 
-    public Franc Times(int multiplier)
+    public Money Times(int multiplier)
     {
         return new Franc(amount * multiplier);
     }
