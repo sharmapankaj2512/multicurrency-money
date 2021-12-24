@@ -9,6 +9,6 @@ public class Franc: Money
 
     public override Money Times(int multiplier)
     {
-        return new Franc(amount * multiplier, currency = "CHF");
+        return Money.Franc(amount * multiplier);
     }
 }
