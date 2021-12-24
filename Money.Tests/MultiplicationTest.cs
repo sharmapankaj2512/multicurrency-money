@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using NUnit.Framework;
+using static NUnit.Framework.Assert;
 
 namespace Money.Tests;
 
@@ -9,10 +9,7 @@ public class MultiplicationTest
     public void TestMultiplication()
     {
         var five = new Dollar(5);
-        var product = five.Times(2);
-        Assert.AreEqual(10, product.amount);
-
-        product = five.Times(3);
-        Assert.AreEqual(15, product.amount);
+        AreEqual(new Dollar(10), five.Times(2));
+        AreEqual(new Dollar(15), five.Times(3));
     }
 }

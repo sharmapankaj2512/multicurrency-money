@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using static NUnit.Framework.Assert;
 
 namespace Money.Tests;
 
@@ -8,12 +9,12 @@ public class EqualityTest
     [Test]
     public void TestAreEqual()
     {
-        Assert.AreEqual(new Dollar(5), new Dollar(5));
+        AreEqual(new Dollar(5), new Dollar(5));
     }
 
     [Test]
     public void TestAreNotEqual()
     {
-        Assert.AreNotEqual(new Dollar(5), new Dollar(6));
+        AreNotEqual(new Dollar(5), new Dollar(6));
     }
 }
