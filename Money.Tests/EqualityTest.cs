@@ -18,5 +18,6 @@ public class EqualityTest
     {
         AreNotEqual(new Dollar(5), new Dollar(6));
         AreNotEqual(new Franc(5), new Franc(6));
+        AreNotEqual(new Franc(5), new Dollar(5));
     }
 }

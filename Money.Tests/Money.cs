@@ -13,6 +13,8 @@ public class Money
 
     public override bool Equals(object? obj)
     {
+        if (obj?.GetType() != GetType())
+            return false;
         return amount == (obj as Money).Amount;
     }
 
