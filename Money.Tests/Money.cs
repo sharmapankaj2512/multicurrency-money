@@ -2,26 +2,23 @@ namespace Money.Tests;
 
 public class Money
 {
-    protected readonly int amount;
-    protected string currency;
+    private readonly int _amount;
+    private readonly string _currency;
 
-    public int Amount => amount;
-
-    protected Money(int amount, string currency)
+    private Money(int amount, string currency)
     {
-        this.amount = amount;
-        this.currency = currency;
+        _amount = amount;
+        _currency = currency;
     }
 
     public override bool Equals(object? obj)
     {
-        var money = (obj as Money);
-        return amount == money.Amount && currency == money.currency;
+        return obj is Money money && _amount == money._amount && _currency == money._currency;
     }
 
     public override int GetHashCode()
     {
-        return Amount;
+        return _amount;
     }
 
     public static Money Dollar(int amount)
@@ -31,7 +28,7 @@ public class Money
 
     public Money Times(int multiplier)
     {
-        return new Money(amount * multiplier, "USD");
+        return new Money(_amount * multiplier, _currency);
     }
 
     public static Money Franc(int amount)
@@ -41,6 +38,6 @@ public class Money
 
     public string Currency()
     {
-        return currency;
+        return _currency;
     }
 }
