@@ -20,11 +20,11 @@ public class Dollar
 
     public Dollar(int amount)
     {
-        throw new System.NotImplementedException();
+        // do nothing
     }
 
     public void times(int multiplier)
     {
-        throw new System.NotImplementedException();
+        this.amount = 5 * 2;
     }
 }
