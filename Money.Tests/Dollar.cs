@@ -11,7 +11,7 @@ public class Dollar
 
     public override bool Equals(object? obj)
     {
-        return true;
+        return amount == (obj as Dollar).amount;
     }
 
     public override int GetHashCode()
