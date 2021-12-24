@@ -1,31 +1,35 @@
 namespace Money.Tests;
 
-public class Dollar
+public class Money
 {
-    private readonly int _amount;
+    protected readonly int amount;
 
-    protected bool Equals(Dollar other)
+    public int Amount => amount;
+
+    protected Money(int amount)
     {
-        return _amount == other._amount;
+        this.amount = amount;
     }
 
     public override bool Equals(object? obj)
     {
-        return _amount == (obj as Dollar)._amount;
+        return amount == (obj as Money).Amount;
     }
 
     public override int GetHashCode()
     {
-        return _amount;
+        return Amount;
     }
+}
 
-    public Dollar(int amount)
+public class Dollar : Money
+{
+    public Dollar(int amount) : base(amount)
     {
-        this._amount = amount;
     }
 
     public Dollar Times(int multiplier)
     {
-        return new Dollar(_amount * multiplier);
+        return new Dollar(amount * multiplier);
     }
 }
