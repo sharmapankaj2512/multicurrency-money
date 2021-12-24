@@ -15,9 +15,8 @@ public class Money
 
     public override bool Equals(object? obj)
     {
-        if (obj?.GetType() != GetType())
-            return false;
-        return amount == (obj as Money).Amount;
+        var money = (obj as Money);
+        return amount == money.Amount && currency == money.currency;
     }
 
     public override int GetHashCode()
