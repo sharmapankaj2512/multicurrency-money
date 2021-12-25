@@ -43,4 +43,9 @@ public class Money
     {
         return new Money(amount, "CHF");
     }
+
+    public Money Plus(Money other)
+    {
+        throw new System.NotImplementedException();
+    }
 }
