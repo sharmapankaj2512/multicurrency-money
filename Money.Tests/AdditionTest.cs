@@ -12,7 +12,7 @@ public class AdditionTest
     {
         Assert.AreEqual(
             Money.Dollar(expected),
-            Money.Dollar(left).Plus(Money.Dollar(right)).Reduce("USD"));
+            Money.Dollar(left).Plus(Money.Dollar(right)).Reduce(new Bank(), "USD"));
     }
 
 

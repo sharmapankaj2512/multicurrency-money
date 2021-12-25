@@ -2,7 +2,7 @@ namespace Money.Tests;
 
 public interface IExpression
 {
-    Money Reduce(string to);
+    Money Reduce(Bank bank, string to);
 }
 
 public class Sum : IExpression
@@ -16,7 +16,7 @@ public class Sum : IExpression
         _addend = addend;
     }
 
-    public Money Reduce(string to)
+    public Money Reduce(Bank bank, string to)
     {
         return new Money(_augend._amount + _addend._amount, to);
     }
@@ -71,9 +71,9 @@ public class Money : IExpression
         return new Sum(this, that);
     }
 
-    public Money Reduce(string to)
+    public Money Reduce(Bank bank, string to)
     {
-        int rate = _currency == "CHF" && to == "USD"? 2 : 1;
+        var rate = bank.Rate(_currency, to);
         return new Money(_amount / rate, to);
     }
 }
