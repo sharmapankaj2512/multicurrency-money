@@ -1,6 +1,10 @@
 namespace Money.Tests;
 
-public class Money
+public interface IExpression
+{
+        
+}
+public class Money: IExpression
 {
     private readonly int _amount;
     private readonly string _currency;
@@ -44,7 +48,7 @@ public class Money
         return new Money(amount, "CHF");
     }
 
-    public Money Plus(Money other)
+    public IExpression Plus(Money other)
     {
         return new Money(_amount + other._amount, _currency);
     }

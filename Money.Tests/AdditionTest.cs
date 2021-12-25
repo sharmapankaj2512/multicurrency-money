@@ -2,6 +2,7 @@ using NUnit.Framework;
 
 namespace Money.Tests;
 
+[TestFixture]
 public class AdditionTest
 {
     [Test]
@@ -12,5 +13,25 @@ public class AdditionTest
         Assert.AreEqual(
             Money.Dollar(expected),
             Money.Dollar(left).Plus(Money.Dollar(right)));
+    }
+
+
+    [Test]
+    public void TestMultiCurrencyAddition()
+    {
+        var bank = new Bank();
+        var five = Money.Dollar(5);
+        var sum = five.Plus(five);
+        var reduced = bank.Reduce(sum, "USD");
+
+        Assert.AreEqual(Money.Dollar(10), reduced);
+    }
+    
+    public class Bank
+    {
+        public Money Reduce(IExpression expr, string targetCurrency)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
