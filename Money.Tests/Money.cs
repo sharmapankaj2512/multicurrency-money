@@ -46,6 +46,6 @@ public class Money
 
     public Money Plus(Money other)
     {
-        return this;
+        return new Money(_amount + other._amount, _currency);
     }
 }
