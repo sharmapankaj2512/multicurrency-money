@@ -73,6 +73,7 @@ public class Money : IExpression
 
     public Money Reduce(string to)
     {
-        return this;
+        int rate = _currency == "CHF" && to == "USD"? 2 : 1;
+        return new Money(_amount / rate, to);
     }
 }

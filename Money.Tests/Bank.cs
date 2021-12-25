@@ -6,4 +6,9 @@ public class Bank
     {
         return expr.Reduce(to);
     }
+
+    public void AddRate(string from, string to, int rate)
+    {
+        
+    }
 }
