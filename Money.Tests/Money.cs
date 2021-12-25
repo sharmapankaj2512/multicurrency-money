@@ -46,6 +46,6 @@ public class Money
 
     public Money Plus(Money other)
     {
-        throw new System.NotImplementedException();
+        return this;
     }
 }
