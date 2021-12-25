@@ -2,14 +2,31 @@ namespace Money.Tests;
 
 public interface IExpression
 {
-        
 }
-public class Money: IExpression
+
+public class Sum : IExpression
 {
-    private readonly int _amount;
+    private readonly Money _augend;
+    private readonly Money _addend;
+
+    public Sum(Money augend, Money addend)
+    {
+        _augend = augend;
+        _addend = addend;
+    }
+
+    public Money Reduce(string to)
+    {
+        return new Money(_augend._amount + _addend._amount, to);
+    }
+}
+
+public class Money : IExpression
+{
+    public readonly int _amount;
     private readonly string _currency;
 
-    private Money(int amount, string currency)
+    public Money(int amount, string currency)
     {
         _amount = amount;
         _currency = currency;
@@ -48,8 +65,8 @@ public class Money: IExpression
         return new Money(amount, "CHF");
     }
 
-    public IExpression Plus(Money other)
+    public IExpression Plus(Money that)
     {
-        return new Money(_amount + other._amount, _currency);
+        return new Sum(this, that);
     }
 }
