@@ -2,6 +2,7 @@ namespace Money.Tests;
 
 public interface IExpression
 {
+    Money Reduce(string to);
 }
 
 public class Sum : IExpression
@@ -68,5 +69,10 @@ public class Money : IExpression
     public IExpression Plus(Money that)
     {
         return new Sum(this, that);
+    }
+
+    public Money Reduce(string to)
+    {
+        return this;
     }
 }

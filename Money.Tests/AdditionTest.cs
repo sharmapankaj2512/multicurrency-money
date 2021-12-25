@@ -12,7 +12,7 @@ public class AdditionTest
     {
         Assert.AreEqual(
             Money.Dollar(expected),
-            (Money.Dollar(left).Plus(Money.Dollar(right)) as Sum).Reduce("USD"));
+            Money.Dollar(left).Plus(Money.Dollar(right)).Reduce("USD"));
     }
 
 
@@ -26,12 +26,20 @@ public class AdditionTest
 
         Assert.AreEqual(Money.Dollar(10), reduced);
     }
-    
+
+    [Test]
+    public void TestReduceMoney()
+    {
+        var bank = new Bank();
+        var reduced = bank.Reduce(Money.Dollar(1), "USD");
+        Assert.AreEqual(Money.Dollar(1), reduced);
+    }
+
     public class Bank
     {
         public Money Reduce(IExpression expr, string to)
         {
-            return (expr as Sum).Reduce(to);
+            return expr.Reduce(to);
         }
     }
 }
