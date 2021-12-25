@@ -31,7 +31,7 @@ public class AdditionTest
     {
         public Money Reduce(IExpression expr, string targetCurrency)
         {
-            throw new System.NotImplementedException();
+            return Money.Dollar(10);
         }
     }
 }
