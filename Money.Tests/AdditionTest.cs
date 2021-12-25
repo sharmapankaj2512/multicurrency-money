@@ -5,10 +5,11 @@ namespace Money.Tests;
 public class AdditionTest
 {
     [Test]
-    public void TestAddition()
+    [TestCase(1, 1, 0)]
+    public void TestAddition(int expected, int left, int right)
     {
         Assert.AreEqual(
-            Money.Dollar(1), 
-            Money.Dollar(1).Plus(Money.Dollar(0)));
+            Money.Dollar(expected),
+            Money.Dollar(left).Plus(Money.Dollar(right)));
     }
 }
